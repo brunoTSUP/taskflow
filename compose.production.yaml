@@ -1,0 +1,11 @@
+services:
+  web:
+    image: ghcr.io/brunotsup/taskflow:${IMAGE_TAG:-latest}
+    container_name: taskflow-web
+    env_file:
+      - /etc/taskflow/.env
+    environment:
+      RAILS_ENV: production
+    ports:
+      - "80:80"
+    restart: unless-stopped
